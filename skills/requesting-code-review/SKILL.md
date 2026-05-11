@@ -31,7 +31,7 @@ HEAD_SHA=$(git rev-parse HEAD)
 
 **2. Dispatch code reviewer subagent:**
 
-Use Task tool with `general-purpose` type, fill template at `code-reviewer.md`
+Load the reviewer prompt template from `code-reviewer.md` (in the `requesting-code-review/` skill directory) and dispatch a subagent with it. In marina-agent, use `read_file` to load the template then `spawn_agent` with the filled prompt.
 
 **Placeholders:**
 - `{DESCRIPTION}` - Brief summary of what you built
@@ -100,4 +100,5 @@ You: [Fix progress indicators]
 - Show code/tests that prove it works
 - Request clarification
 
-See template at: requesting-code-review/code-reviewer.md
+See reviewer prompt template at: `<superpowers-skills-dir>/requesting-code-review/code-reviewer.md`
+Fill in `{DESCRIPTION}`, `{PLAN_OR_REQUIREMENTS}`, `{BASE_SHA}`, `{HEAD_SHA}` before dispatching.
